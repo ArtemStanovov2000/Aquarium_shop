@@ -1,0 +1,29 @@
+@import "header.scss";
+
+:root {
+    --white: #ffffff;
+
+    --blue_green: #079c0f;
+    --blue_green-hover: #068c0d;
+    --blue_green-active: #057c0c;
+
+    --light-green: #67ce00;
+    --light-green-hover: #5cb900;
+    --light-green-active: #52a400;
+
+    --body-background: #b9d5ff;
+    --navigation: #87b6fd;
+    --navigation-hover: #71a8fa;
+    --navigation-active: #5798fa;
+}
+
+.body {
+    background-color: var(--body-background);
+}
+
+.body-container {
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family: Arial, Helvetica, sans-serif
+}
+

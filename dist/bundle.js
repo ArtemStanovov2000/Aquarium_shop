@@ -2,6 +2,55 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/footer.js":
+/*!**************************!*\
+  !*** ./src/js/footer.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createFooterTemplate: () => (/* binding */ createFooterTemplate)
+/* harmony export */ });
+const createFooterTemplate = () => {
+    return (
+        `<footer class="footer">
+        <div class="footer__top footer-top">
+          <div class="footer-top__left">
+            <a class=""></a>
+            <p class=""></p>
+          </div>
+          <div class="footer-top__bar footer-bar">
+            <ul class="footer-bar__list">
+              <li class="footer-bar__item">Главная</li>
+              <li class="footer-bar__item">Каталог</li>
+              <li class="footer-bar__item">Доставка</li>
+              <li class="footer-bar__item">Контакты</li>
+              <li class="footer-bar__item">Аквариумы</li>
+              <li class="footer-bar__item">Дополнительное оборудование</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="copyright-memo">© Все права защищены</p>
+          <div class="messengers">
+            <ul class="messengers__list">
+              <li class="messengers__item"></li>
+              <li class="messengers__item"></li>
+              <li class="messengers__item"></li>
+            </ul>
+          </div>
+          <div class="developers-name">
+            <p class="developers-name__desc">Разработано:</p>
+            <p class="developers-name__desc">g7g7g8</p>
+          </div>
+        </div>
+      </footer>`
+    )
+}
+
+/***/ }),
+
 /***/ "./src/js/header.js":
 /*!**************************!*\
   !*** ./src/js/header.js ***!
@@ -132,6 +181,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   render: () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var _header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header.js */ "./src/js/header.js");
+/* harmony import */ var _footer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footer.js */ "./src/js/footer.js");
 const render = (container, template, place = `beforeend`) => {
     container.insertAdjacentHTML(place, template)
 };
@@ -140,6 +190,9 @@ const bodyContainer = document.querySelector(".body-container");
 
 
 render(bodyContainer, (0,_header_js__WEBPACK_IMPORTED_MODULE_0__.createHeaderTemplate)())
+
+;
+render(bodyContainer, (0,_footer_js__WEBPACK_IMPORTED_MODULE_1__.createFooterTemplate)())
 })();
 
 /******/ })()

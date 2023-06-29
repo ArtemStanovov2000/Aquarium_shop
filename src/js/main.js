@@ -3,6 +3,9 @@ export const render = (container, template, place = `beforeend`) => {
 };
 
 const bodyContainer = document.querySelector(".body-container");
-import {createHeaderTemplate} from "./header.js"
 
+import {createHeaderTemplate} from "./header.js"
 render(bodyContainer, createHeaderTemplate())
+
+import {createFooterTemplate} from "./footer.js"
+render(bodyContainer, createFooterTemplate())

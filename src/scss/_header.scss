@@ -62,6 +62,18 @@
     color: var(--black);
 }
 
+#product-cart {
+    display: flex;
+}
+
+#product-cart::after {
+    content: url(./img/svg/cart.svg);
+    display: flex;
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+}
+
 .header-middle {
     display: flex;
     justify-content: space-between;
@@ -89,6 +101,17 @@
     font-size: 25px;
     border: 2px solid var(--white);
     padding: 5px 10px;
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+}
+
+.header-middle__phone::before {
+    content: url(./img/svg/phone.svg);
+    display: flex;
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
 }
 
 .header-middle__address {
@@ -103,18 +126,38 @@
 }
 
 .my-cabinet__input {
-    width: 100%;
+    width: calc(100% - 5px);
     padding: 0;
     border: 0;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 10px;
     font-size: 18px;
 }
 
 .my-cabinet__data {
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     justify-content: space-between;
+}
+
+.my-cabinet__orders {
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+}
+
+.my-cabinet__orders::after {
+    content: url(./img/svg/point.svg);
+    display: flex;
+    height: 24px;
+    width: 24px;
+    margin-left: 20px;
+}
+
+.my-cabinet__cabinet {
+    text-decoration: none;
+    color: var(--black)
 }
 
 .navigation {

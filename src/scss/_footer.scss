@@ -1,0 +1,137 @@
+.footer__top {
+    background-color: var(--footer-top);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+
+.shop-logo {
+    width: 292.5px;
+    height: 50px;
+    display: flex;
+    background-image: url(./img/logo.png);
+    background-size: 100% 100%;
+}
+
+.shop-logo-desc {
+    font-size: 16px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.footer-bar {
+    width: 500px;
+}
+
+.footer-bar__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    font-size: 20px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer-bar__item {
+    list-style-type: none;
+}
+
+.footer-bar__link {
+    color: var(--black);
+    text-decoration: none;
+}
+
+.footer-bar__link:hover {
+    text-decoration: underline;
+}
+
+.footer-bar__link:active {
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.footer__bottom {
+    background-color: var(--footer-bottom);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 120px;
+}
+
+.copyright-memo {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.messengers {
+    display: flex;
+    align-items: end;
+    margin-bottom: 10px;
+}
+
+.messengers__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.messengers__item {
+    list-style-type: none;
+    width: 50px;
+    height: 50px;
+}
+
+.messengers__link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: var(--messengers-list);
+    border-radius: 50%;
+}
+
+.messengers__link:hover {
+    background-color: var(--messengers-list-hover);
+}
+
+.messengers__link:active {
+    background-color: var(--messengers-list-active);
+}
+
+.messengers__link--telegram-logo {
+    background-image: url(./img/svg/telegram-svg.svg);
+}
+
+.messengers__link--facebook-logo {
+    background-image: url(./img/svg/facebook-svg.svg);
+}
+
+.messengers__link--vk-logo {
+    background-image: url(./img/svg/vk-svg.svg);
+}
+
+.developers-name {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.developers-name__desc {
+    margin: 0;
+    font-size: 20px;
+}
+
+.developers-name__desc:last-child {
+    color: var(--blue_green);
+    font-size: 24px;
+}

@@ -1,7 +1,9 @@
 @import "header.scss";
+@import "footer.scss";
 
 :root {
     --white: #ffffff;
+    --black: #000000;
 
     --blue_green: #079c0f;
     --blue_green-hover: #068c0d;
@@ -15,6 +17,12 @@
     --navigation: #87b6fd;
     --navigation-hover: #71a8fa;
     --navigation-active: #5798fa;
+
+    --footer-top: #dfce3a;
+    --footer-bottom: #b6a618;
+    --messengers-list: #9c8f17;
+    --messengers-list-hover: #8c8014;
+    --messengers-list-active: #7c7212;
 }
 
 .body {

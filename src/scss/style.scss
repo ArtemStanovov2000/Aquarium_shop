@@ -1,5 +1,7 @@
 @import "header.scss";
 @import "footer.scss";
+@import "goods-cart.scss";
+@import "main.scss";
 
 :root {
     --white: #ffffff;
@@ -23,6 +25,14 @@
     --messengers-list: #9c8f17;
     --messengers-list-hover: #8c8014;
     --messengers-list-active: #7c7212;
+
+    --cart-button: #1f39cc;
+    --cart-button-hover: #354cd1;
+    --cart-button-active: #4b60d6;
+    --cart-background: #cee1ff;
+    --cart-background-hover: #d2e4ff;
+    --cart-background-active: #d7e7ff;
+    --cart-price: #71dd80;
 }
 
 .body {

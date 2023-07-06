@@ -1,13 +1,13 @@
-export const createProductCartTemplate = () => {
-    return (
-      `<article class="product">
-      <img class="product__img">
+export const createProductCartTemplate = (price, volume, articleNumber) => {
+  return (
+    `<article class="product">
+      <img class="product__img" src="./img/background.png">
       <div class="product__desc">
-        <p class="product__price">1467 рублей</p>
-        <p class="product__volume">Аквариум 5 литров</p>
+        <p class="product__price">${price} рублей</p>
+        <p class="product__volume">Аквариум ${volume} литров</p>
       </div>
-      <button id="product-buy-btn" class="product__buy-btn" type="button">Купить</button>
-      <button id="product-in-cart-btn" class="product__in-cart-btn" type="button">В корзину</button>
+      <button class="cart-button product__buy-btn" id="buy-btn-article-number-${articleNumber}" type="button">Купить</button>
+      <button class="cart-button product__in-cart-btn" id="cart-btn-article-number-${articleNumber}" type="button">В корзину</button>
     </article>`
-    )
-  }
+  )
+}

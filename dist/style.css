@@ -331,6 +331,95 @@
   font-size: 24px;
 }
 
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  background-color: var(--cart-background);
+  padding: 15px;
+}
+
+.product:hover {
+  background-color: var(--cart-background-hover);
+}
+
+.product:active {
+  background-color: var(--cart-background-active);
+}
+
+.product__img {
+  background-image: url(./img/product.png);
+  width: 100%;
+  height: 200px;
+  background-size: 100% 100%;
+  border: none;
+}
+
+.product__price {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  background-color: var(--cart-price);
+  display: block;
+  width: max-content;
+  padding: 2px 10px;
+}
+
+.product__volume {
+  font-size: 18px;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.cart-button {
+  margin-top: 15px;
+  background-color: var(--cart-button);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-button:hover {
+  background-color: var(--cart-button-hover);
+}
+
+.cart-button:active {
+  background-color: var(--cart-button-active);
+}
+
+.product__buy-btn::before {
+  content: url(./img/svg/buy.svg);
+  display: flex;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.product__in-cart-btn::before {
+  content: url(./img/svg/cart.svg);
+  display: flex;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  justify-items: center;
+}
+
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -349,6 +438,13 @@
   --messengers-list: #9c8f17;
   --messengers-list-hover: #8c8014;
   --messengers-list-active: #7c7212;
+  --cart-button: #1f39cc;
+  --cart-button-hover: #354cd1;
+  --cart-button-active: #4b60d6;
+  --cart-background: #cee1ff;
+  --cart-background-hover: #d2e4ff;
+  --cart-background-active: #d7e7ff;
+  --cart-price: #71dd80;
 }
 
 .body {

@@ -2,9 +2,11 @@
 @import "footer.scss";
 @import "goods-cart.scss";
 @import "main.scss";
+@import "page-number.scss";
 
 :root {
     --white: #ffffff;
+    --grey: #919191;
     --black: #000000;
 
     --blue_green: #079c0f;
@@ -35,6 +37,8 @@
     --cart-price: #71dd80;
 
     --sort-radio: #e9a771;
+
+    --red: #fc3b3b;
 }
 
 .body {

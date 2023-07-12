@@ -10,12 +10,12 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AquariumsGoodsList: () => (/* binding */ AquariumsGoodsList)
+/* harmony export */   AquariumsGoodsBase: () => (/* binding */ AquariumsGoodsBase)
 /* harmony export */ });
-const AquariumsGoodsList = {
-  price: [1467, 1000, 2000, 2500, 4500, 5520],
-  volume: [5, 10, 7, 16, 30, 45],
-  articleNumber: ["K001001", "K001002", "K001003", "K001004"]
+const AquariumsGoodsBase = {
+  price: [3577, 2288, 4740, 5475, 4524, 2264, 3119, 1979, 1897, 3733, 1302, 4399, 5110, 2623, 2763, 2761, 2455, 5176, 3532, 3554, 3513],
+  volume: [17, 6, 10, 24, 8, 18, 9, 17, 41, 25, 20, 17, 17, 39, 43, 42, 19, 19, 30, 45, 10],
+  articleNumber: ["K001001", "K001002", "K001003", "K001004, K001005", "K001006", "K001007", "K001008", "K001009", "K001010, K001011", "K001012", "K001013", "K001014", "K001015", "K001016", "K001017", "K001018", "K001019", "K001020, K001021", "K001022", "K001023", "K001024", "K001025"]
 }
 
 /***/ }),
@@ -171,6 +171,44 @@ const createMainTemplate = () => {
 
 /***/ }),
 
+/***/ "./src/js/page-number-button-container.js":
+/*!************************************************!*\
+  !*** ./src/js/page-number-button-container.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createSitePageNumberBtnContainerTemplate: () => (/* binding */ createSitePageNumberBtnContainerTemplate)
+/* harmony export */ });
+const createSitePageNumberBtnContainerTemplate = () => {
+    return (
+        `<div class="page-number-container">
+        </div>`
+    )
+}
+
+/***/ }),
+
+/***/ "./src/js/page-number-button.js":
+/*!**************************************!*\
+  !*** ./src/js/page-number-button.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createSitePageNumberBtnTemplate: () => (/* binding */ createSitePageNumberBtnTemplate)
+/* harmony export */ });
+const createSitePageNumberBtnTemplate = (number) => {
+    return (
+        `<input type="radio" id="page-number-${number}" name="page-number" value="${number}" class="page-number-radio">
+        <label for="page-number-${number}" class="page-number-label">${number}</label>`
+    )
+}
+
+/***/ }),
+
 /***/ "./src/js/product-cart.js":
 /*!********************************!*\
   !*** ./src/js/product-cart.js ***!
@@ -300,7 +338,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sort_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sort.js */ "./src/js/sort.js");
 /* harmony import */ var _product_cart_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./product-cart.js */ "./src/js/product-cart.js");
 /* harmony import */ var _data_product_data_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./data/product-data.js */ "./src/js/data/product-data.js");
-/* harmony import */ var _footer_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./footer.js */ "./src/js/footer.js");
+/* harmony import */ var _page_number_button_container_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./page-number-button-container.js */ "./src/js/page-number-button-container.js");
+/* harmony import */ var _page_number_button_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./page-number-button.js */ "./src/js/page-number-button.js");
+/* harmony import */ var _footer_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./footer.js */ "./src/js/footer.js");
 const render = (container, template, place = `beforeend`) => {
     container.insertAdjacentHTML(place, template)
 };
@@ -322,21 +362,35 @@ render(mainBlock, (0,_sort_js__WEBPACK_IMPORTED_MODULE_2__.createSortTemplate)()
 ;
 
 const productContainer = document.querySelector(".product-container");
+const AquariumsGoodsBaseLength = _data_product_data_js__WEBPACK_IMPORTED_MODULE_4__.AquariumsGoodsBase.price.length
 
 const createProductCartList = function createProductCartList() {
-    const AquariumsGoodsListLength = _data_product_data_js__WEBPACK_IMPORTED_MODULE_4__.AquariumsGoodsList.price.length
-
-    for (let i = 0; i < AquariumsGoodsListLength; i++) {
-        render(productContainer, (0,_product_cart_js__WEBPACK_IMPORTED_MODULE_3__.createProductCartTemplate)(_data_product_data_js__WEBPACK_IMPORTED_MODULE_4__.AquariumsGoodsList.price[i], _data_product_data_js__WEBPACK_IMPORTED_MODULE_4__.AquariumsGoodsList.volume[i], _data_product_data_js__WEBPACK_IMPORTED_MODULE_4__.AquariumsGoodsList.articleNumber[i]))
+    for (let i = 0; i < AquariumsGoodsBaseLength; i++) {
+        render(productContainer, (0,_product_cart_js__WEBPACK_IMPORTED_MODULE_3__.createProductCartTemplate)(_data_product_data_js__WEBPACK_IMPORTED_MODULE_4__.AquariumsGoodsBase.price[i], _data_product_data_js__WEBPACK_IMPORTED_MODULE_4__.AquariumsGoodsBase.volume[i], _data_product_data_js__WEBPACK_IMPORTED_MODULE_4__.AquariumsGoodsBase.articleNumber[i]))
     }
 }
 
 createProductCartList()
 
 
+;
+render(mainBlock, (0,_page_number_button_container_js__WEBPACK_IMPORTED_MODULE_5__.createSitePageNumberBtnContainerTemplate)())
 
 ;
-render(bodyContainer, (0,_footer_js__WEBPACK_IMPORTED_MODULE_5__.createFooterTemplate)())
+const sitePageNumberBtnContainer = document.querySelector(".page-number-container")
+
+const renderPageNumberCutton = function renderPageNumberCutton () {
+    const sitePageCount = Math.ceil(AquariumsGoodsBaseLength/9)
+
+    for (let i = 0; i < sitePageCount; i++) {
+        render(sitePageNumberBtnContainer, (0,_page_number_button_js__WEBPACK_IMPORTED_MODULE_6__.createSitePageNumberBtnTemplate)(i))
+    }
+}
+
+renderPageNumberCutton()
+
+;
+render(bodyContainer, (0,_footer_js__WEBPACK_IMPORTED_MODULE_7__.createFooterTemplate)())
 })();
 
 /******/ })()

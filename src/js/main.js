@@ -17,20 +17,34 @@ import { createSortTemplate } from "./sort.js"
 render(mainBlock, createSortTemplate(), "afterbegin")
 
 import { createProductCartTemplate } from "./product-cart.js"
-import { AquariumsGoodsList } from "./data/product-data.js"
+import { AquariumsGoodsBase } from "./data/product-data.js"
 const productContainer = document.querySelector(".product-container");
+const AquariumsGoodsBaseLength = AquariumsGoodsBase.price.length
 
 const createProductCartList = function createProductCartList() {
-    const AquariumsGoodsListLength = AquariumsGoodsList.price.length
-
-    for (let i = 0; i < AquariumsGoodsListLength; i++) {
-        render(productContainer, createProductCartTemplate(AquariumsGoodsList.price[i], AquariumsGoodsList.volume[i], AquariumsGoodsList.articleNumber[i]))
+    for (let i = 0; i < AquariumsGoodsBaseLength; i++) {
+        render(productContainer, createProductCartTemplate(AquariumsGoodsBase.price[i], AquariumsGoodsBase.volume[i], AquariumsGoodsBase.articleNumber[i]))
     }
 }
 
 createProductCartList()
 
 
+import { createSitePageNumberBtnContainerTemplate } from "./page-number-button-container.js"
+render(mainBlock, createSitePageNumberBtnContainerTemplate())
+
+import { createSitePageNumberBtnTemplate } from "./page-number-button.js"
+const sitePageNumberBtnContainer = document.querySelector(".page-number-container")
+
+const renderPageNumberCutton = function renderPageNumberCutton() {
+    const sitePageCount = Math.ceil(AquariumsGoodsBaseLength / 9)
+
+    for (let i = 0; i < sitePageCount; i++) {
+        render(sitePageNumberBtnContainer, createSitePageNumberBtnTemplate(i))
+    }
+}
+
+renderPageNumberCutton()
 
 import { createFooterTemplate } from "./footer.js"
 render(bodyContainer, createFooterTemplate())

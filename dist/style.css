@@ -411,7 +411,48 @@
   margin-right: 10px;
 }
 
-.main {
+.sort {
+  margin-top: 40px;
+  display: flex;
+}
+
+.sort__title {
+  margin: 0;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.sort-param {
+  font-size: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.price-sort {
+  padding-right: 20px;
+}
+
+.volume-sort {
+  padding-left: 20px;
+  border-left: 2px solid var(--black);
+}
+
+.sort__label {
+  cursor: pointer;
+  padding: 5px 5px;
+}
+
+.sort__radio {
+  display: none;
+}
+
+.sort__radio:checked + .sort__label {
+  background-color: var(--sort-radio);
+}
+
+.product-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 40px;
@@ -445,6 +486,7 @@
   --cart-background-hover: #d2e4ff;
   --cart-background-active: #d7e7ff;
   --cart-price: #71dd80;
+  --sort-radio: #e9a771;
 }
 
 .body {

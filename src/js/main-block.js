@@ -1,6 +1,8 @@
 export const createMainTemplate = () => {
     return (
         `<maim class="main">
-       </main>`
+        <section class="product-container">
+        </section>
+      </main>`
     )
 }

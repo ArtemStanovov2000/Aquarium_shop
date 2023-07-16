@@ -1,6 +1,8 @@
-export const createHeaderTemplate = () => {
-    return (
-        `<header class="header">
+import { createElement } from "../utils.js"
+
+const createHeaderTemplate = () => {
+  return (
+    `<header class="header">
         <article class="header-top">
           <h2 class="header-top__title">Магазин аквариумов</h2>
           <ul class="header-top__list">
@@ -46,5 +48,27 @@ export const createHeaderTemplate = () => {
           </ul>
         </nav>
       </header>`
-    )
-}
+  );
+};
+
+export default class SiteHeaderTemplate {
+  constructor() {
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createHeaderTemplate();
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+};

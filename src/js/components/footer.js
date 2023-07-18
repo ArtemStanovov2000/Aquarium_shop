@@ -1,4 +1,6 @@
-export const createFooterTemplate = () => {
+import { createElement } from "../utils.js"
+
+const createFooterTemplate = () => {
   return (
     `<footer class="footer">
     <div class="footer__top footer-top">
@@ -52,3 +54,25 @@ export const createFooterTemplate = () => {
   </footer>`
   )
 }
+
+export default class SiteFooterTemplate {
+  constructor() {
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createFooterTemplate();
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+};

@@ -2,7 +2,7 @@ import { createElement } from "../utils.js"
 
 const createFooterTemplate = () => {
   return (
-    `<footer class="footer">
+    `<div>
     <div class="footer__top footer-top">
       <div class="footer-top__left">
         <a href="#" class="shop-logo"></a>
@@ -51,7 +51,7 @@ const createFooterTemplate = () => {
         <p class="developers-name__desc">g7g7g8</p>
       </div>
     </div>
-  </footer>`
+  </div>`
   )
 }
 

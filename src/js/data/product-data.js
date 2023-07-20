@@ -1,5 +1,107 @@
-export const AquariumsGoodsBase = {
-  price: [3577, 2288, 4740, 5475, 4524, 2264, 3119, 1979, 1897, 3733, 1302, 4399, 5110, 2623, 2763, 2761, 2455, 5176, 3532, 3554, 3513],
-  volume: [17, 6, 10, 24, 8, 18, 9, 17, 41, 25, 20, 17, 17, 39, 43, 42, 19, 19, 30, 45, 10],
-  articleNumber: ["K001001", "K001002", "K001003", "K001004, K001005", "K001006", "K001007", "K001008", "K001009", "K001010, K001011", "K001012", "K001013", "K001014", "K001015", "K001016", "K001017", "K001018", "K001019", "K001020, K001021", "K001022", "K001023", "K001024", "K001025"]
-}
+export const AquariumsGoodsBase = [
+  {
+    price: 3577,
+    volume: 17,
+    articleNumber: "K001001"
+  },
+  {
+    price: 2288,
+    volume: 6,
+    articleNumber: "K001002"
+  },
+  {
+    price: 4740,
+    volume: 10,
+    articleNumber: "K001003"
+  },
+  {
+    price: 5475,
+    volume: 24,
+    articleNumber: "K001004"
+  },
+  {
+    price: 4524,
+    volume: 8,
+    articleNumber: "K001005"
+  },
+  {
+    price: 2264,
+    volume: 18,
+    articleNumber: "K001002"
+  },
+  {
+    price: 3119,
+    volume: 9,
+    articleNumber: "K001007"
+  },
+  {
+    price: 1979,
+    volume: 17,
+    articleNumber: "K001008"
+  },
+  {
+    price: 1897,
+    volume: 41,
+    articleNumber: "K001009"
+  },
+  {
+    price: 3733,
+    volume: 25,
+    articleNumber: "K001010"
+  },
+  {
+    price: 1302,
+    volume: 20,
+    articleNumber: "K001011"
+  },
+  {
+    price: 4399,
+    volume: 17,
+    articleNumber: "K001012"
+  },
+  {
+    price: 5110,
+    volume: 17,
+    articleNumber: "K001013"
+  },
+  {
+    price: 2623,
+    volume: 39,
+    articleNumber: "K001014"
+  },
+  {
+    price: 2763,
+    volume: 43,
+    articleNumber: "K001015"
+  },
+  {
+    price: 2761,
+    volume: 42,
+    articleNumber: "K001016"
+  },
+  {
+    price: 2455,
+    volume: 19,
+    articleNumber: "K001017"
+  },
+  {
+    price: 5176,
+    volume: 19,
+    articleNumber: "K001018"
+  },
+  {
+    price: 3532,
+    volume: 30,
+    articleNumber: "K001019"
+  },
+  {
+    price: 3554,
+    volume: 45,
+    articleNumber: "K001020"
+  },
+  {
+    price: 3513,
+    volume: 10,
+    articleNumber: "K001021"
+  },
+]

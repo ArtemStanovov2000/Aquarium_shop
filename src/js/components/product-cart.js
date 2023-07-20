@@ -1,4 +1,6 @@
-export const createProductCartTemplate = (price, volume, articleNumber) => {
+import { createElement } from "../utils.js"
+
+const createProductCartTemplate = (price, volume, articleNumber) => {
   return (
     `<article class="product">
       <img class="product__img" src="./img/background.png">
@@ -11,3 +13,25 @@ export const createProductCartTemplate = (price, volume, articleNumber) => {
     </article>`
   )
 }
+
+export default class SiteProductCartrTemplate {
+  constructor() {
+    this._element = null;
+  }
+
+  getTemplate(price, volume, articleNumber) {
+    return createProductCartTemplate(price, volume, articleNumber);
+  }
+
+  getElement(price, volume, articleNumber) {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate(price, volume, articleNumber));
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+};

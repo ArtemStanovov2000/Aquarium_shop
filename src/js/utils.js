@@ -20,3 +20,5 @@ export const render = (container, element, place) => {
             break;
     }
 };
+
+const COUNT_CART_ON_PAGE = 6;

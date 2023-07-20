@@ -1,3 +1,5 @@
+import { createElement } from "../utils.js"
+
 export const createSortTemplate = () => {
     return (
       `<article class="sort">
@@ -17,3 +19,25 @@ export const createSortTemplate = () => {
     </article>`
     )
   }
+
+  export default class SiteSortTemplate {
+    constructor() {
+      this._element = null;
+    }
+  
+    getTemplate() {
+      return createSortTemplate();
+    }
+  
+    getElement() {
+      if (!this._element) {
+        this._element = createElement(this.getTemplate());
+      }
+  
+      return this._element;
+    }
+  
+    removeElement() {
+      this._element = null;
+    }
+  };

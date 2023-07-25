@@ -105,3 +105,5 @@ export const AquariumsGoodsBase = [
     articleNumber: "K001021"
   },
 ]
+
+export const AquariumsGoodsBaseClone = AquariumsGoodsBase.slice()

@@ -384,15 +384,15 @@ const createSortTemplate = () => {
       `<article class="sort">
       <h2 class="sort__title">Сортировка товаров:</h2>
       <div class="price-sort sort-param">
-        <input type="radio" id="more-expensive-first-btn" name="price" value="3" class="sort__radio" value="expensive">
+        <input type="radio" id="more-expensive-first-btn" name="price" class="sort__radio" value="expensive">
         <label for="more-expensive-first-btn" class="sort__label">Сначала подороже</label>
-        <input type="radio" id="cheaper-first-btn" name="price" value="3" class="sort__radio" value="cheap" checked>
+        <input type="radio" id="cheaper-first-btn" name="price" class="sort__radio" value="cheap" checked>
         <label for="cheaper-first-btn" class="sort__label">Сначала подешевле</label>
       </div>
       <div class="volume-sort sort-param">
-        <input type="radio" id="more-volume" name="volume" value="3" class="sort__radio" value="small">
+        <input type="radio" id="more-volume" name="volume" class="sort__radio" value="small">
         <label for="more-volume" class="sort__label">Поменьше объем</label>
-        <input type="radio" id="less-volume" name="volume" value="3" class="sort__radio" value="large" checked>
+        <input type="radio" id="less-volume" name="volume" class="sort__radio" value="large" checked>
         <label for="less-volume" class="sort__label">Побольше объем</label>
       </div>
     </article>`
@@ -431,7 +431,8 @@ const createSortTemplate = () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AquariumsGoodsBase: () => (/* binding */ AquariumsGoodsBase)
+/* harmony export */   AquariumsGoodsBase: () => (/* binding */ AquariumsGoodsBase),
+/* harmony export */   AquariumsGoodsBaseClone: () => (/* binding */ AquariumsGoodsBaseClone)
 /* harmony export */ });
 const AquariumsGoodsBase = [
   {
@@ -541,6 +542,8 @@ const AquariumsGoodsBase = [
   },
 ]
 
+const AquariumsGoodsBaseClone = AquariumsGoodsBase.slice()
+
 /***/ }),
 
 /***/ "./src/js/utils.js":
@@ -552,6 +555,7 @@ const AquariumsGoodsBase = [
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   RenderPosition: () => (/* binding */ RenderPosition),
+/* harmony export */   SortStatus: () => (/* binding */ SortStatus),
 /* harmony export */   createElement: () => (/* binding */ createElement),
 /* harmony export */   render: () => (/* binding */ render)
 /* harmony export */ });
@@ -577,6 +581,13 @@ const render = (container, element, place) => {
             break;
     }
 };
+
+const SortStatus = {
+    CHEAPER: "cheap",
+    EXPENSIVE: "expensive",
+    SMALL: "small",
+    LARGE: "large"
+}
 
 const COUNT_CART_ON_PAGE = 6;
 
@@ -680,15 +691,72 @@ const productContainerElement = document.querySelector(".product-container");
 const pageNumberContainerElement = document.querySelector(".page-number-container");
 (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.render)(pageNumberContainerElement, new _components_page_number_button_js__WEBPACK_IMPORTED_MODULE_4__["default"]().getElement(), _utils_js__WEBPACK_IMPORTED_MODULE_0__.RenderPosition.AFTERBEGIN)
 
-const productCartCount = _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBase.length
+const priceSort = document.querySelector(".price-sort")
+const volumeSort = document.querySelector(".volume-sort")
+const radioButtonPrice = document.querySelectorAll('input[name="price"]');
+const radioButtonVolume = document.querySelectorAll('input[name="volume"]');
 
-const renderProductCart = function renderProductCart () {
-    for (let i = 0; i < productCartCount; i++) {
-        (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.render)(productContainerElement, new _components_product_cart_js__WEBPACK_IMPORTED_MODULE_6__["default"]().getElement(_data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBase[i].price, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBase[i].volume, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBase[i].articleNumber), _utils_js__WEBPACK_IMPORTED_MODULE_0__.RenderPosition.AFTERBEGIN)
-    }
+productContainerElement.innerHTML = ""
+_data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone.forEach((element, index) => {
+    ;(0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.render)(productContainerElement, new _components_product_cart_js__WEBPACK_IMPORTED_MODULE_6__["default"]().getElement(_data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].price, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].volume, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].articleNumber), _utils_js__WEBPACK_IMPORTED_MODULE_0__.RenderPosition.AFTERBEGIN)
+})
+
+let priceDirection
+
+const checkPriceRadioButtonValue = function checkPriceRadioButtonValue(radioButton) {
+    radioButton.forEach((radioButton, index) => {
+        if (radioButton.checked) {
+            priceDirection = radioButton.value;
+        }
+        return priceDirection;
+    });
 }
 
-renderProductCart ()
+priceSort.addEventListener("click", () => {
+    checkPriceRadioButtonValue(radioButtonPrice)
+    if (priceDirection === _utils_js__WEBPACK_IMPORTED_MODULE_0__.SortStatus.EXPENSIVE) {
+        productContainerElement.innerHTML = ""
+        _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone.sort((a, b) => a.price - b.price);
+        _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone.forEach((element, index) => {
+            (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.render)(productContainerElement, new _components_product_cart_js__WEBPACK_IMPORTED_MODULE_6__["default"]().getElement(_data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].price, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].volume, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].articleNumber), _utils_js__WEBPACK_IMPORTED_MODULE_0__.RenderPosition.AFTERBEGIN)
+        })
+    } else if (priceDirection === _utils_js__WEBPACK_IMPORTED_MODULE_0__.SortStatus.CHEAPER) {
+        productContainerElement.innerHTML = ""
+        _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone.sort((a, b) => b.price - a.price)
+        _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone.forEach((element, index) => {
+            ;(0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.render)(productContainerElement, new _components_product_cart_js__WEBPACK_IMPORTED_MODULE_6__["default"]().getElement(_data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].price, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].volume, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].articleNumber), _utils_js__WEBPACK_IMPORTED_MODULE_0__.RenderPosition.AFTERBEGIN)
+        })
+    }
+})
+
+let volumeDirection;
+
+const checkVolumeRadioButtonValue = function checkVolumeRadioButtonValue(radioButton) {
+    radioButton.forEach((radioButton, index) => {
+        if (radioButton.checked) {
+            volumeDirection = radioButton.value;
+        }
+        return volumeDirection;
+    });
+}
+
+volumeSort.addEventListener("click", () => {
+    checkVolumeRadioButtonValue(radioButtonVolume)
+    if (volumeDirection === _utils_js__WEBPACK_IMPORTED_MODULE_0__.SortStatus.LARGE) {
+        productContainerElement.innerHTML = ""
+        _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone.sort((a, b) => a.volume - b.volume);
+        _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone.forEach((element, index) => {
+            (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.render)(productContainerElement, new _components_product_cart_js__WEBPACK_IMPORTED_MODULE_6__["default"]().getElement(_data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].price, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].volume, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].articleNumber), _utils_js__WEBPACK_IMPORTED_MODULE_0__.RenderPosition.AFTERBEGIN)
+        })
+    } else if (volumeDirection === _utils_js__WEBPACK_IMPORTED_MODULE_0__.SortStatus.SMALL) {
+        productContainerElement.innerHTML = ""
+        _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone.sort((a, b) => b.volume - a.volume)
+        _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone.forEach((element, index) => {
+            ;(0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.render)(productContainerElement, new _components_product_cart_js__WEBPACK_IMPORTED_MODULE_6__["default"]().getElement(_data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].price, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].volume, _data_product_data_js__WEBPACK_IMPORTED_MODULE_7__.AquariumsGoodsBaseClone[index].articleNumber), _utils_js__WEBPACK_IMPORTED_MODULE_0__.RenderPosition.AFTERBEGIN)
+        })
+    }
+})
+
 
 
 

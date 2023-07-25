@@ -21,4 +21,11 @@ export const render = (container, element, place) => {
     }
 };
 
+export const SortStatus = {
+    CHEAPER: "cheap",
+    EXPENSIVE: "expensive",
+    SMALL: "small",
+    LARGE: "large"
+}
+
 const COUNT_CART_ON_PAGE = 6;
